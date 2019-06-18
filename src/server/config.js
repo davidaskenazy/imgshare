@@ -10,7 +10,8 @@ const routes = require('../routes');
 module.exports = app => {
 
   // Settings
-  app.set('port', process.env.PORT || 5000);
+  var portU = 5000;
+  app.set('port', process.env.PORT || portU);
   app.set('views', path.join(__dirname, '../views'));
   app.engine('.hbs', exphbs({
     defaultLayout: 'main',
