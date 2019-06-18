@@ -6,20 +6,16 @@ mongoose.connect(database.URI, {
     useNewUrlParser : true
 })
     .then(db => console.log ("DB in connected"))
-    .catch(err => console.error(err));*/
+    .catch(err => console.error(err));
+*/
 
-
-
-    const mongoose = require('mongoose'); 
-const db = 'mongodb+srv://davidaskenazy:W1941s1994!@cluster0-syir3.mongodb.net/test?retryWrites=true&w=majority'
-mongoose
-    .connect(db, { 
-        useNewUrlParser: true,
-        useCreateIndex: true
-      })
-    .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
-    
-    
+const MongoClient = require("mongodb").MongoClient;
+const uri = "mongodb+srv://davidaskenazy:123456a@cluster0-syir3.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
     
     
