@@ -11,7 +11,7 @@ mongoose.connect(database.URI, {
 
 
     const mongoose = require('mongoose'); 
-const db = 'mongodb+srv://david:<password>@cluster0-re3gq.mongodb.net/test?retryWrites=true'
+const db = 'mongodb+srv://davidaskenazy:W1941s1994!@cluster0-syir3.mongodb.net/test?retryWrites=true&w=majority'
 mongoose
     .connect(db, { 
         useNewUrlParser: true,
