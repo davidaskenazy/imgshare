@@ -9,7 +9,7 @@ const routes = require('../routes');
 
 module.exports = app => {
 
-  // Settings
+  // Settings s
   var portU = 5000;
   app.set('port', process.env.PORT || portU);
   app.set('views', path.join(__dirname, '../views'));
