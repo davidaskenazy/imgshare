@@ -60,22 +60,16 @@ $(function() {
     let $this = $(this);
     const response = confirm('Are you sure you want to delete this image?');
     if (response) {
-      let imgId = $(this).data('id');
-    
+      let imgId = $(this).data('id'); //no registra el valor!
       $.ajax({
-        url: '/images/' + imgId+"/comment",
+        url: '/images/' + imgId+'/comment',
         type: 'DELETE'
       })
         .done(function(result) {
           $this.removeClass('btn-danger').addClass('btn-success');
           $this.find('i').removeClass('fa-times').addClass('fa-check');
-          $this.append('');
-          var url = "/images/"+ imgId;
-          $(location).attr('href',url);
-          
+
         });
-        //
-          
     }
   });
 });
