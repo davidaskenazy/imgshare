@@ -95,7 +95,16 @@ ctrl.remove = async (req, res) => {
     res.json({response: 'Bad Request.'})
   }
 };
-
+//aca!
+ctrl.removeC = async (req, res) => {
+  const image = await Image.findOne({filename: {$regex: req.params.image_id}});
+  if (image) {
+    await Comment.deleteOne({image_id: image._id});
+    res.json(true);
+  } else {
+    res.json({response: 'Bad Request.'})
+  }
+};
 
 
 module.exports = ctrl;

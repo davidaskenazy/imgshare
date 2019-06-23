@@ -58,18 +58,19 @@ $(function() {
   $('#btn-deleteC').click(function (e) {
     e.preventDefault();
     let $this = $(this);
-    const response = confirm('Are you sure you want to delete this comment?');
+    const response = confirm('Are you sure you want to delete this image?');
     if (response) {
-      let imgIda = $(this).data('id');
+      let imgId = $(this).data('id');
+    
       $.ajax({
-        url: '/images/' + imgIda+'/comment',// aca no !
+        url: '/images/' + imgId+"/comment",
         type: 'DELETE'
       })
         .done(function(result) {
           $this.removeClass('btn-danger').addClass('btn-success');
           $this.find('i').removeClass('fa-times').addClass('fa-check');
           $this.append('');
-          var url = '/images/' + imgIda;
+          var url = "/images/"+ imgId;
           $(location).attr('href',url);
           
         });
