@@ -54,21 +54,23 @@ $(function() {
       });
   });
 
-  // Delete Button comment
-  $('#btn-deleteC').click(function (e) {
+  $('#btn-delet').click(function(e){
     e.preventDefault();
     let $this = $(this);
-    const response = confirm('Are you sure you want to delete this image?');
+    const response = confirm('Are you sure you want to delete this comment?');
     if (response) {
-      let imgId = $(this).data('id'); //no registra el valor!
+      var imgId = $(this).data('id'); //aca esta el problema
+      imgId = "a";//funciona asi, no se como pero funciona (?)
+      console.log("aaa" + imgId);
       $.ajax({
-        url: '/images/' + imgId+'/comment',
-        type: 'DELETE'
+        url: '/images/'+imgId+'/comment',
+        type : 'DELETE'
       })
-        .done(function(result) {
+        .done(function(result){
           $this.removeClass('btn-danger').addClass('btn-success');
           $this.find('i').removeClass('fa-times').addClass('fa-check');
-
+          var url = "/";
+          $(location).attr('href',url);
         });
     }
   });
