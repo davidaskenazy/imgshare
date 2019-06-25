@@ -82,6 +82,7 @@ ctrl.comment= async (req, res) => {
   } else {
     res.redirect('/');
   }
+  
 };
 
 ctrl.remove = async (req, res) => {
@@ -99,6 +100,7 @@ ctrl.remove = async (req, res) => {
 ctrl.removeC = async (req, res) => {
   const image = await Image.findOne({filename: {$regex: req.params.image_id}});
   if (image) {
+   
     await Comment.deleteOne({image_id: image._id});
     res.json(true);
   } else {

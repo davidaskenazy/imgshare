@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <h2>{{ image.title }}</h2>
+    
     <button class="btn btn-danger" id="btn-delete" data-id="{{image.uniqueId}}">
       <i class="fa fa-times"></i> Delete
     </button>
@@ -54,22 +55,24 @@
             <i class="fa fa-comment"></i> Post
           </button>
         </div>
-      </form>      
+      </form>
     </blockquote>
     <ul class="list-group p-4">
       {{#each comments}}
+      
       <li class="list-group-item">
         <div class="row">
           <a href="#" class="col text-center">
             <img src="http://gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45" />
           </a>
           <blockquote class="col">
-             <!-- ACA  OJO (image.uniqueID)-->
-            
-               <button class="btn btn-danger" id="btn-delet" data-id="{{image.id}}">
-                  <i class="fa fa-times"></i> Delete
-               </button>
-               
+            <!-- ACCAAAA!!!!-->
+             
+             <button class="btn btn-danger" id="btn-delet" data-id="{{../image.uniqueId}}">
+              
+              <i class="fa fa-times"></i> Delete
+            </button>
+          
             <p class="lead">{{comment}}</p>
             <footer class="blockquote-footer">
               {{name}}- {{timeago timestamp}}
